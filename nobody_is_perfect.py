@@ -176,20 +176,24 @@ with col1:
 with col2:
     # Display columns for the players
     for i in range(num_players):
-        st.markdown(f"<div style='text-align: center;'><b>{i + 1}: {player_emojis[i]}</b></div>", unsafe_allow_html=True)
-        steps_forward = st.number_input('steps forward', min_value=-10, max_value=10, value=1, key=f'forward_{i}', label_visibility="hidden")
-        if st.button(f'Move', key=f'move_forward_{i}', help=None):
+        subcol1, subcol2 = col2.columns([3,1])
+        player = f"{i + 1}: {player_emojis[i]}"
+        # subcol1.markdown(f"<div style='text-align: center;'><b>{i + 1}: {player_emojis[i]}</b></div>", unsafe_allow_html=True)
+
+        # steps_forward = subcol2.number_input('steps forward', min_value=-10, max_value=10, value=1, key=f'forward_{i}', label_visibility="hidden")
+        steps_forward = subcol1.number_input(player, min_value=-10, max_value=10, value=1, key=f'forward_{i}')
+        if subcol2.button(f'Move', key=f'move_forward_{i}', help=None):
             move_marker(i, steps_forward)
             st.experimental_rerun()
 
-        st.markdown(
-            f"""
-            <style>
-            div[data-testid="stButton"] > button {{
-                display: block;
-                margin: 0 auto;
-            }}
-            </style>
-            """,
-            unsafe_allow_html=True
-        )
+        # st.markdown(
+        #     f"""
+        #     <style>
+        #     div[data-testid="stButton"] > button {{
+        #         display: block;
+        #         margin: 0 auto;
+        #     }}
+        #     </style>
+        #     """,
+        #     unsafe_allow_html=True
+        # )
