@@ -182,7 +182,7 @@ with col2:
 
         # steps_forward = subcol2.number_input('steps forward', min_value=-10, max_value=10, value=1, key=f'forward_{i}', label_visibility="hidden")
         steps_forward = subcol1.number_input(player, min_value=-10, max_value=10, value=1, key=f'forward_{i}')
-        if subcol2.button(f'Move', key=f'move_forward_{i}', help=None):
+        if subcol2.button(f'Go', key=f'move_forward_{i}', help=None):
             move_marker(i, steps_forward)
             st.experimental_rerun()
 
