@@ -108,7 +108,7 @@ with st.sidebar:
     st.divider()
 
     # Slider to adjust the size of the right column
-    col2_width_ratio = st.slider("Right Column Width Ratio", min_value=1, max_value=12, value=4)
+    col2_width_ratio = st.slider("Right Column Width Ratio", min_value=1, max_value=12, value=3)
     col1_width_ratio = 13 - col2_width_ratio  # Ensuring the total ratio sums to 6
 
     # Add reset button
